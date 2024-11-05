@@ -1,6 +1,6 @@
 ﻿
 
-namespace Business.Models;
+namespace UserProvider.Business.Models;
 
 internal class UserEntity
 {

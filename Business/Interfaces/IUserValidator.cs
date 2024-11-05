@@ -1,5 +1,6 @@
-﻿using Business.Models;
+﻿using UserProvider.Business.Models;
 
+namespace UserProvider.Business.Interfaces;
 public interface IUserValidator
 {
     bool ValidateEmail(string email);

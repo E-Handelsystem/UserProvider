@@ -1,6 +1,4 @@
-﻿
-
-namespace Business.Factories;
+﻿namespace UserProvider.Business.Factories;
 
 internal class UserFactory
 {

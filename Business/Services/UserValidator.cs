@@ -1,6 +1,7 @@
-﻿using Business.Models;
-using System.Collections.Generic;
-using System.Linq;
+﻿using UserProvider.Business.Interfaces;
+using UserProvider.Business.Models;
+
+namespace UserProvider.Business.Services;
 
 public class UserValidator : IUserValidator
 {

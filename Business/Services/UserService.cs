@@ -1,8 +1,21 @@
-﻿using Business.Models;
+﻿using UserProvider.Business.Interfaces;
+using UserProvider.Business.Models;
+
+namespace UserProvider.Business.Services;
+
+
 
 public class UserService : IUserService
 {
+    private readonly IUserRepository _userRepository;
+
+    public UserService(IUserRepository userRepository)
+    {
+        _userRepository = userRepository;
+    }
+
     private List<User> users = new List<User>
+
     {
         new User { Id = 1, Username = "john_doe", Email = "john@example.com", Password = "password123" },
         new User { Id = 2, Username = "jane_doe", Email = "jane@example.com", Password = "password456" }
@@ -23,5 +36,15 @@ public class UserService : IUserService
         // Logik för att spara användaren i en databas eller en lista.
         // Just nu kan det bara 
         // vara en plats för att visa hur metoden ska se ut.
+    }
+
+    public User LoginAsGuest()
+    {
+
+        var guestUser = new User { Id = users.Count + 1, Username = "Guest", IsGuest = true };
+
+        _userRepository.SaveGuestUser(guestUser);
+
+        return guestUser;
     }
 }
