@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Business\UserProvider.Business.csproj" />
+    <ProjectReference Include="..\UserProvider.Business\UserProvider.Business.csproj" />
     <ProjectReference Include="..\UserManagementAPI\UserManagementAPI.csproj" />
     <ProjectReference Include="..\UserProvider.Data\UserProvider.Data.csproj" />
     <ProjectReference Include="..\UserProvider.Domain\UserProvider.Domain.csproj" />
