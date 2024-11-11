@@ -15,7 +15,7 @@ public class UserService_Tests
 
     public UserService_Tests()
     {
-        // Mocka UserRepository eller andra beroenden
+        
         _mockUserRepository = new Mock<IUserRepository>();
         _userService = new UserService(_mockUserRepository.Object);
     }
@@ -38,5 +38,18 @@ public class UserService_Tests
         Assert.Equal("Guest", result.Username);
         // Kontrollera att inga personliga uppgifter sparas
         _mockUserRepository.Verify(repo => repo.SaveGuestUser(It.IsAny<User>()), Times.Once);
+    }
+    [Fact]
+    public void AddToWishlist_GuestUser_ShouldReturnPromptToCreateAccount()
+    {
+        // Arrange
+        var guestUser = new User { IsGuest = true }; 
+        string productId = "123";  // Exempel på produkt id
+
+        // Act
+        var result = _userService.AddToWishlist(guestUser, productId);
+
+        // Assert
+        Assert.Equal("Please create an account to save items to your wishlist.", result);
     }
 }

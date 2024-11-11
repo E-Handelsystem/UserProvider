@@ -47,4 +47,16 @@ public class UserService : IUserService
 
         return guestUser;
     }
+    public string AddToWishlist(User user, string productId)
+    {
+        if (user.IsGuest)
+        {
+            return "Please create an account to save items to your wishlist.";
+        }
+
+        // Logik för att lägga till något i önskelistan
+        // ...
+
+        return "Item added to wishlist.";
+    }
 }
